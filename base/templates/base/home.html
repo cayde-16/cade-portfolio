@@ -74,18 +74,21 @@
         }
         .gretting-wrapper{
             display: grid;
-            justify-content: center;
-            align-items: center;
-            border: 2px dashed lightcoral;
+            text-align: center;
+            align-content: center;
             min-height:10em ;
         }
 
         .intro-wrapper{
             background-color: var(--secondaryColor);
             border: 1px solid var(--borderColor);
+            border-bottom: 1px solid var(--borderColor);
+        
+            
             -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
             -moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
             box-shadow: -1px -1px 3px -1px rgba(0,0,0,0.75);
+            border-radius: 5px 5px 0 0;
 
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -96,18 +99,14 @@
         }   ;
 
         .nav-wrapper{
-            grid-area:new-wrapper;
-            border: 1px dashed lightcoral ;
-
+            grid-area:nav-wrapper;
+           
         }
-
         .left-column{
-            border: 1px dashed lightcoral ;
             grid-area:left-column;
         }
         
         .right-column{
-            border: 1px dashed lightcoral ;
             grid-area:right-column;
         }
 
@@ -128,20 +127,27 @@
                 <h1>Cade | Develops</h1>
             </div>
         
-
-
             <div class="intro-wrapper">
                 <div class="nav-wrapper">
                     Nav
                 </div>
 
+
+                <div class="navigation">
+                     Nav
+                </div>
+
+
+               
+            
                 <div class="left-column">
-                    left-column
+                    Left-column
                 </div>
 
                 <div class="right-column">
-                    right-column
+                    Right-column
                 </div>
+
             </div>
 
         </div>
