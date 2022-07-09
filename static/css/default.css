@@ -9,6 +9,10 @@
             --secondaryText:#4b5156;
 
             --themeDotBorder:#24292e;
+
+            --previewBg:rgb(251, 249, 243, 0.8);
+            --previewShadow:#f0ead6;
+            
         }
         html, body{
             padding:0;
@@ -18,7 +22,6 @@
         h1, h2, h3, h4, h5, h6, strong{
             color: var(--mainText);
             font-family: 'Russo One', sans-serif;
-            font-weight: 500;
         }
         a{
             text-decoration: none;
@@ -58,10 +61,11 @@
             width: 1200px;
             margin: 0 auto;
         }
-        .gretting-wrapper{
+        .greeting-wrapper{
             display: grid;
+            justify-content: center;
             text-align: center;
-            align-content: center;
+            align-items: center;
             min-height:10em ;
         }
 
@@ -192,19 +196,85 @@
             background-color: #7e4c74;
            
         }
-        #setting-note{
+        #settings-note{
             font-size:12px;
             font-style: italic;
             text-align:center;
         }
         .right-column{
             grid-area:right-column;
+            display: grid;
+            align-content: center;
+
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
+
+        #preview-shadow{
+            background-color: var(--previewShadow);
+            width: 300px;
+            height: 180px;
+            padding-left: 30px;
+            padding-top: 30px;
+        }
+        #preview{
+            width: 300px;
+            border: 1.5px solid #17a2b8;
+            background-color: var(--previewBg);
+            padding:15px;
+            position:relative;
+        }
+
+        .corner{
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            border: 1.5px solid #17a2b8;
+            background-color: #fff;
+            position:absolute;
+
+        
+        }
+
+        #corner-tl{
+            top:-5px;
+            left:-5px;
+        }
+
+        #corner-tr{
+            top:-5px;
+            right:-5px;
+        }
+
+        #corner-br{
+            bottom:-5px;
+            right: -5px;
+        }
+
+        #corner-bl{
+            bottom:-5px;
+            left: -5px;
+        }
 
         @media screen and (max-width : 1200px){
             .main-container{
                 width: 95%;
             }
         }
-    
+
+        @media screen and (max-width : 800px){
+            .intro-wrapper{
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    'nav-wrapper '
+                    'left-column '
+                    'right-column'
+                ;
+            }  
+            
+            
+            .right-column{
+                justify-content: center;
+            }
+        }
