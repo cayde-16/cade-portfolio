@@ -23,7 +23,7 @@
     <section class="s1">
         <div class="main-container">
             <div class="greeting-wrapper">
-                <h1> Cade Heck</h1>
+                <h1> Cade Alexander Heck</h1>
             </div>
         
             <div class="intro-wrapper">
@@ -151,7 +151,7 @@
                                 learn everything there is to know about the 
                                 ubiquitous lorem ipsum passage.
                             </p>
-                            <a href="#">Read More</a>
+                            <a href="{% url 'post' %}">Read More</a>
                         </div>
 
                     </div>
@@ -180,7 +180,23 @@
 
     <section class="s2">
         <div class="main-container">
-           Contact
+            <h3 style="text-align:center;">Get in Touch</h3>
+            <form id="contact-form">
+                <label>Name</label>
+                <input class="input-field" type="text" name="name">
+
+                <label>Subject</label>
+                <input class="input-field" type="text" placeholder="Subject">
+
+                <label>Email</label>
+                <input class="input-field" type="text" placeholder="Email">
+
+
+                <label>Message</label>
+                <textarea class="input-field" placeholder="Message"></textarea>
+
+                <input id="submit-btn" type="submit" value="Send">
+            </form>
         </div>
     </section>
 
