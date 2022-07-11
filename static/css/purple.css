@@ -1,0 +1,27 @@
+:root{
+    --mainColor:#46344E;
+    --secondaryColor:#382a3f;
+
+    --borderColor:#1d1520;
+
+    --mainText:#fff;
+    --secondaryText:#eeeeee;
+
+    --themeDotBorder:#FFF;
+
+    --previewBg:rgba(29, 21, 32, 0.8);
+    --previewShadow:#2b202f;
+    
+
+    --buttonColor:#8534a3;
+}
+
+
+.post-preview p{
+    color: black;
+    padding: 15px;
+}
+.post-preview h6{
+    color: black;
+    padding: 15px;
+}
