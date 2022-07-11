@@ -9,7 +9,8 @@
 
    
     <link rel="stylesheet" type="text/css" href="{% static '/css/default.css'  %}">
-    <!-- <link id="theme-style" rel="stylesheet" type="text/css" href="{% static '/css/purple.css' %}"> -->
+    <link id="theme-style" rel="stylesheet" type="text/css" href="">
+ 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,10 +49,10 @@
                     <h5 style="text-align:center; line-height:0; ">Personalize Theme</h5>
 
                     <div id="theme-options-wrapper">
-                        <div id="light-mode"class="theme-dot"></div>
-                        <div id="blue-mode"class="theme-dot"></div>
-                        <div id="green-mode"class="theme-dot"></div>
-                        <div id="purple-mode"class="theme-dot"></div>
+                        <div data-mode="light" id="light-mode"class="theme-dot"></div>
+                        <div data-mode="blue" id="blue-mode"class="theme-dot"></div>
+                        <div data-mode="green" id="green-mode"class="theme-dot"></div>
+                        <div data-mode="purple" id="purple-mode"class="theme-dot"></div>
                     </div>
 
                     <p id="settings-note">*Theme settings will be saved for <br>your next visit</p>
@@ -204,7 +205,50 @@
         </div>
     </section>
 
-    <script type="text/javascript" src="{% static '/js/script.js' %}"></script>    
+    <script type="text/javascript" >
+
+        console.log("It's working")
+
+        let theme = localStorage.getItem('theme')
+
+
+        if(theme == null){
+            setTheme('light')
+        }else{
+            setTheme(theme)
+        }
+
+        let themeDots = document.getElementsByClassName('theme-dot')
+
+        for (var i=0; themeDots.length > i; i++){
+            themeDots[i].addEventListener('click', function(){
+                let mode = this.dataset.mode
+                console.log('Option clicked', mode)
+                setTheme(mode)
+            })
+        }   
+
+
+        function setTheme(mode){
+            if(mode == "light"){
+                document.getElementById('theme-style').href = "{% static '/css/default.css'  %}"
+            }
+
+            if(mode == "blue"){
+                document.getElementById('theme-style').href = "{% static '/css/blue.css'  %}"
+            }
+
+            if(mode == "green"){
+                document.getElementById('theme-style').href = "{% static '/css/green.css'  %}"
+            }
+
+            if(mode == "purple"){
+                document.getElementById('theme-style').href = "{% static '/css/purple.css'  %}"
+            }
+
+            localStorage.setItem('theme', mode)
+        }
+            </script>    
 
 </body>
 </html>
