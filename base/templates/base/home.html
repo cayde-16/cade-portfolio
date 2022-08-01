@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <title>Cade's - Portfolio</title>
+    <title>CadesPortfolio</title>
 
     
 </head>
@@ -184,8 +184,8 @@
     <section class="s2">
         <div class="main-container">
             <h3 style="text-align:center;">Get in Touch</h3>
-            <form  method="POST" id="contact-form">
-                {% csrf_token %}
+            <form   id="contact-form" action="{% url 'home' %}">
+                
                 <label>Name</label>
                 <input class="input-field" type="text" placeholder="Name">
 
@@ -249,7 +249,7 @@
         }
             </script>    
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     var form = document.getElementById('contact-form')
     form.addEventListener('submit', function(e){
       e.preventDefault()
@@ -270,6 +270,6 @@
             window.location.href = "{% url 'home' %}"
       })
     }
-</script>
+</script> -->
 </body>
 </html>
