@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <title>Cade Heck</title>
+    <title>Cade's - Portfolio</title>
 
     
 </head>
@@ -39,7 +39,7 @@
                     </div>
                     
                     <ul id="navigation">
-                        <li><a href="#">Contact</a></li>
+                        <li><a target="_blank" href="#">Resume</a></li>
                     </ul>
                 </div>
 
@@ -65,7 +65,7 @@
                         <div id="corner-tl" class="corner"></div>
                         <div id="corner-tr" class="corner"></div>
                         <h3>Software Developer</h3>
-                        <p>I Try to learn something about everything and everything about somthing.</p>
+                        <p>I try to learn something about everything and everything about something.</p>
                         <div id="corner-br" class="corner"></div>
                         <div id="corner-bl" class="corner"></div>
                     </div>
@@ -130,33 +130,31 @@
 
     <section class="s1">
         <div class="main-container">
-            <h3 style="text-align:center;">Projects</h3>
+            <h3 style="text-align:center;">Recent Projects</h3>
            <div class="post-wrapper">
                 <div>
                     <div class="post">
-                        <img class="thumbnail" src="{% static '/images/linked_in.jpg' %}">
+                        <img class="thumbnail" src="{% static '/images/coming-soon.jpg' %}">
                         <div class="post-preview">
-                            <h6 class="post-title">Post Title</h6>
-                            <p>
-                                From its medieval origins to the digital era, 
-                                learn everything there is to know about the 
-                                ubiquitous lorem ipsum passage.
-                            </p>
-                            <a href="#">Read More</a>
+                             <h6 class="post-title">Coming Soon</h6> 
+                             <p>
+                               ChatApp Coming Soon 
+                            </p> 
+                             <!-- <a href="#">Read More</a>  -->
                         </div>
                     </div>
                 </div>
 
                 <div>
                     <div class="post">
-                        <img class="thumbnail" src="{% static "/images/linked_in.jpg" %}">
+                        <img class="thumbnail" src="{% static '/images/blog-site.jpg' %}">
                         <div class="post-preview">
-                            <h6 class="post-title">Post Title</h6>
-                            <p>From its medieval origins to the digital era, 
-                                learn everything there is to know about the 
-                                ubiquitous lorem ipsum passage.
+                            <h6 class="post-title">Members Only Blog</h6>
+                            <p>This project deals with developing a Blog App.
+                                It enables users to create or search for specific topics or opinions
                             </p>
-                            <a href="{% url 'post' %}">Read More</a>
+                            <a target="_blank" id='read-more'href="https://github.com/cayde-16/Blog-Project">Code</a>
+                            <a target="_blank" id="live-links" href="https://memberss-only.herokuapp.com/">Demo</a>
                         </div>
 
                     </div>
@@ -164,14 +162,14 @@
 
                 <div>
                     <div class="post">
-                        <img class="thumbnail" src="{% static '/images/linked_in.jpg' %}">
+                        <img class="thumbnail" src="{% static '/images/red-store.jpg' %}">
                         <div class="post-preview">
-                            <h6 class="post-title">Post Title</h6>
-                            <p>From its medieval origins to the digital era, 
-                                learn everything there is to know about the 
-                                ubiquitous lorem ipsum passage.
+                            <h6 class="post-title">Red Sporting - Ecommerce Store</h6>
+                            <p>This project deals with developing an <bold>e-commerce website.</bold>
+                                It provides the user with a catalog of different Attire available for purchase in the store.
                             </p>
-                            <a href="#">Read More</a>
+                            <a target="_blank" id='read-more'href="https://github.com/cayde-16/Ecommerce-Project">Code</a>
+                            <a target="_blank" id="live-links" href="https://red-sporting1.herokuapp.com/">Demo</a>
                         </div>
 
                     </div>
@@ -186,9 +184,10 @@
     <section class="s2">
         <div class="main-container">
             <h3 style="text-align:center;">Get in Touch</h3>
-            <form id="contact-form">
+            <form  method="POST" id="contact-form">
+                {% csrf_token %}
                 <label>Name</label>
-                <input class="input-field" type="text" name="name">
+                <input class="input-field" type="text" placeholder="Name">
 
                 <label>Subject</label>
                 <input class="input-field" type="text" placeholder="Subject">
@@ -200,7 +199,7 @@
                 <label>Message</label>
                 <textarea class="input-field" placeholder="Message"></textarea>
 
-                <input id="submit-btn" type="submit" value="Send">
+                <input  id="submit-btn" type="submit" value="Send">
             </form>
         </div>
     </section>
@@ -250,5 +249,27 @@
         }
             </script>    
 
+    <script type="text/javascript">
+    var form = document.getElementById('contact-form')
+    form.addEventListener('submit', function(e){
+      e.preventDefault()
+      console.log('Form submitted...')
+    })
+    document.getElementById('submit-email').addEventListener('click', function(e){
+      submitFormData()
+      console.log('payment button clicked')
+    })
+
+    function submitFormData(){
+        console.log('button clicked')
+
+        .then(res=> res.json())
+        .then((data) => {
+            console.log('Success:' ,data);
+            alert('Your Message was recieved');  
+            window.location.href = "{% url 'home' %}"
+      })
+    }
+</script>
 </body>
 </html>
